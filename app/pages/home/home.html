@@ -19,6 +19,8 @@
 
   <br>
 
-  <meal-card></meal-card>
+  <div *ngFor="#meal of mealList">
+    <meal-card [meal]="meal"></meal-card>
+  </div>
 
 </ion-content>

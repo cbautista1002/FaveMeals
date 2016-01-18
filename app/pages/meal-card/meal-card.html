@@ -1,29 +1,26 @@
 <ion-card>
 
   <ion-item class="item">
-    <h1>Chicken Tenders</h1>
-    <p style="margin-top: 0px; margin-bottom: 0px;">Red Bamboo</p>
-    <ion-icon primary name='star'></ion-icon>
-    <ion-icon primary name='star'></ion-icon>
-    <ion-icon primary name='star'></ion-icon>
-    <ion-icon primary name='star'></ion-icon>
-    <ion-icon         name='star'></ion-icon>
+    <h1>{{meal.item}}</h1>
+    <p style="margin-top: 0px; margin-bottom: 0px;">{{meal.restaurant}}</p>
+    <div *ngFor="#star of meal.stars" style="display: inline;">
+      <ion-icon primary name='star'></ion-icon>
+    </div>
   </ion-item>
 
-<!--   <img src="http://veganamericanprincess.com/wp-content/uploads/2012/07/IMG_1476.jpg"> -->
   <img src="img/redbamboo1.jpeg">
 
   <ion-card-content style="padding-bottom: 0;">
-    <p style="margin-bottom: 0;">too spicy lasdjflasdj flkjsd lkfjsadl kfjsalkd jflk </p>
+    <p style="margin-bottom: 0;">{{meal.info}}</p>
   </ion-card-content>
 
   <ion-item actions class="demo-card">
     <button primary clear item-left>
       <ion-icon name='thumbs-up'></ion-icon>
-      <div>12 Likes</div>
+      <div>{{meal.numLikes}} Likes</div>
     </button>
     <p item-right class="time-ago" style="margin-bottom: 20px;">
-      3 Months Ago
+      {{meal.postedOn}}
     </p>
   </ion-item>
 
