@@ -1,0 +1,51 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>New Meal</ion-title>
+</ion-navbar>
+
+
+<ion-content padding>
+
+  <ion-list block>
+
+    <ion-input floating-label>
+      <ion-label>Restaurant</ion-label>
+      <input type="text" value="" [(ngModel)]="restaurant">
+    </ion-input>
+
+    <ion-input floating-label>
+      <ion-label>Meal Item</ion-label>
+      <input type="text" value="" [(ngModel)]="item">
+    </ion-input>
+
+    <br><br>
+<!--     <ion-input floating-label>
+      <ion-label>Stars</ion-label>
+      <input type="text" value="">
+    </ion-input> -->
+
+    <ion-row center>
+      <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(1)"></ion-icon>
+      <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(2)"></ion-icon>
+      <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(3)"></ion-icon>
+      <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(4)"></ion-icon>
+      <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(5)"></ion-icon>
+    </ion-row>
+
+    <ion-input floating-label>
+      <ion-label>Additional Info</ion-label>
+      <input type="text" value="" [(ngModel)]="info">
+    </ion-input>
+
+  </ion-list>
+
+
+  <ion-row center>
+    <button block outline (click)="addNewMeal()">
+      Submit
+    </button>
+  </ion-row>
+
+</ion-content>

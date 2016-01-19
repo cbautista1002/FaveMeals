@@ -2,6 +2,7 @@ import {App, IonicApp, Platform} from 'ionic-framework/ionic';
 
 import {HomePage} from './pages/home/home';
 import {ListPage} from './pages/list/list';
+import {AddMealPage} from './pages/add-meal/add-meal';
 
 @App({
   templateUrl: 'build/app.html'
@@ -17,7 +18,8 @@ class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'My First List', component: ListPage }
+      { title: 'My First List', component: ListPage },
+      { title: 'New Meal', component: AddMealPage }
     ];
 
     // make HomePage the root (or first) page

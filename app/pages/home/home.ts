@@ -1,6 +1,7 @@
 import {Page, NavController} from 'ionic-framework/ionic';
 import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {MealCard} from '../meal-card/meal-card';
+import {AddMealPage} from '../add-meal/add-meal';
 import 'rxjs/add/operator/map';
 
 @Page({
@@ -13,6 +14,10 @@ export class HomePage {
     this.http = http;
     this.mealList = [];
     this.getMeals();
+  }
+
+  addNewMeal(){
+    this.nav.push(AddMealPage);
   }
 
   getMeals(){
