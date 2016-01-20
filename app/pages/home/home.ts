@@ -16,6 +16,11 @@ export class HomePage {
     this.getMeals();
   }
 
+  onPageWillEnter(){
+    console.log('onPageWillEnter() called');
+    this.getMeals();
+  }
+
   addNewMeal(){
     this.nav.push(AddMealPage);
   }
