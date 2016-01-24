@@ -1,42 +1,34 @@
-import {IonicApp, Page, NavController, NavParams} from 'ionic-framework/ionic';
-import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
+import {IonicApp, Page, NavController, NavParams, Geolocation} from 'ionic-framework/ionic';
 import 'rxjs/add/operator/map';
+import {MealFormComponent} from './meal-form.component';
+
 
 @Page({
-  templateUrl: 'build/pages/add-meal/add-meal.html'
+  templateUrl: 'build/pages/add-meal/add-meal.html',
+  directives: [MealFormComponent]
 })
 export class AddMealPage {
-  constructor(nav: NavController, http: Http){
+  constructor(nav: NavController){
     this.nav = nav;
-    this.http = http;
-
-    this.restaurant = '';
-    this.item = '';
-    this.stars = '';
-    this.info = '';
+    this.lat = 0;
+    this.long = 0;
+    this.getLocation();
   }
 
-  addNewMeal(){
-    console.log('Clicked');
-    let newMeal = JSON.stringify({
-      restaurant: this.restaurant,
-      item: this.item,
-      stars: this.stars,
-      info: this.info
-    });
-    this.http.post('http://node-js-151496.nitrousapp.com:3000/new', newMeal, {})
-      .map(res => res.text())
-      .subscribe(
-        data => console.log(data),
-        err => console.error(err),
-        () => {
-          console.log('Added new meal');
-          this.nav.pop();
-        }
-      );
+  getLocation(){
+    let options = {timeout: 10000, enableHighAccuracy: true};
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.lat = position.coords.latitude;
+        this.long = position.coords.longitude;
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+      },
+      (error) => {
+        console.log(error;)
+      },
+      options
+    );
   }
 
-  starred(starNum){
-    this.stars = starNum;
-  }
 }

@@ -1,4 +1,4 @@
-import {Page, NavController, Geolocation} from 'ionic-framework/ionic';
+import {Page, NavController} from 'ionic-framework/ionic';
 import {Http, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {MealCard} from '../meal-card/meal-card';
 import {AddMealPage} from '../add-meal/add-meal';
@@ -13,7 +13,6 @@ export class HomePage {
     this.nav = nav;
     this.http = http;
     this.mealList = [];
-    this.getLocation();
     this.getMeals();
   }
 
@@ -27,7 +26,7 @@ export class HomePage {
   }
 
   getMeals(){
-    this.http.get('http://node-js-151496.nitrousapp.com:3000/carlos/meals')
+    this.http.get('http://192.241.242.29:3000/carlos/meals')
       .map(res => res.json())
       .subscribe(
         data => {
@@ -36,20 +35,6 @@ export class HomePage {
         err => console.error('There was an error: ' + err);,
         () => console.log('Random Quote Complete')
       );
-  }
-
-  getLocation(){
-    let options = {timeout: 10000, enableHighAccuracy: true};
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position.coords.latitude);
-        console.log(position.coords.longitude);
-      },
-      (error) => {
-        console.log(error);
-      },
-      options
-    );
   }
 
 }

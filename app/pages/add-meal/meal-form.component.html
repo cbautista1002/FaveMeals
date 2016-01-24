@@ -1,0 +1,35 @@
+<ion-list block>
+
+  <ion-input floating-label>
+    <ion-label>Restaurant</ion-label>
+    <input type="text" value="" [(ngModel)]="model.restaurant">
+  </ion-input>
+
+  <ion-input floating-label>
+    <ion-label>Meal Item</ion-label>
+    <input type="text" value="" [(ngModel)]="model.item">
+  </ion-input>
+
+  <br><br>
+
+  <ion-row center>
+    <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(1)"></ion-icon>
+    <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(2)"></ion-icon>
+    <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(3)"></ion-icon>
+    <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(4)"></ion-icon>
+    <ion-icon light name='star' style="font-size: 3.0em" (click)="starred(5)"></ion-icon>
+  </ion-row>
+
+  <ion-input floating-label>
+    <ion-label>Additional Info</ion-label>
+    <input type="text" value="" [(ngModel)]="model.info">
+  </ion-input>
+
+</ion-list>
+
+
+<ion-row center>
+  <button block outline (click)="addNewMeal()">
+    Submit
+  </button>
+</ion-row>
