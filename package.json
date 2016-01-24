@@ -6,7 +6,8 @@
     "ionic-framework": "2.0.0-alpha.49",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
-    "zone.js": "0.5.10"
+    "zone.js": "0.5.10",
+    "systemjs": "0.19.6"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^0.15.9",
@@ -14,5 +15,9 @@
     "typescript": "^1.7.3"
   },
   "name": "favemeals",
-  "description": "FaveMeals: An Ionic project"
+  "description": "FaveMeals: An Ionic project",
+  "cordovaPlugins": [
+    "cordova-plugin-geolocation"
+  ],
+  "cordovaPlatforms": []
 }
