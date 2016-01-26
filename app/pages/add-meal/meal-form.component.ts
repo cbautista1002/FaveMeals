@@ -15,10 +15,31 @@ export class MealFormComponent{
     this.nav = nav;
     this.http = http;
     this.model = new Meal('', '', 0, '');
+    this.restaurantList = [];
+    this.getRestaurantList();
+  }
+
+  getRestaurantList(){
+    this.http.get('http://192.241.242.29:3000/get-restaurants')
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.restaurantList = data;
+          console.log(this.restaurantList);
+        },
+        err => console.error('There was an error: ' + err);,
+        () => console.log('Random Quote Complete')
+      );
   }
 
   addNewMeal(){
     console.log('Clicked');
+    // console.log(this.chosenRestaurant);
+
+    // if(this.chosenRestaurant){
+    //   this.model.restaurant = this.chosenRestaurant;
+    // }
+
     console.log(this.model);
 
     this.http.post('http://192.241.242.29:3000/new', this.model.toJson(), {})
